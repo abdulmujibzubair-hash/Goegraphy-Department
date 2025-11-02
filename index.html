@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/layout.css" type="text/css">
+    <link rel="stylesheet" href="css/site.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Department of Geography | University of Ilorin</title>
+</head>
+<body>
+    <header>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/image-14@2x.png" alt="Department Logo" style="width: 30%; height: 30%;">
+      <h5>Department Of Geography and <br>Environmental Management</h5>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li><a href="program.html">Programs</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger Menu (for mobile) -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Welcome to the Department of Geography & Environmental Management</h1>
+    <p>Empowering students to understand, protect, and design our world through innovative teaching and research.</p>
+    <a href="#" class="btn">Learn More</a>
+  </div>
+</section>
+
+
+    <main class="card-container1">
+ <div class="slideshow-container">
+  <div class="slide fade">
+    <img src="images/download.jpg" alt="Fieldwork 1">
+    <div class="caption">
+        <h2>Welcome to the Department of Geography & Environmental Management</h2>
+      <p>Empowering students with spatial and environmental knowledge.</p>
+      <a href="about.html" class="learn-more-btn">Learn More</a>
+    </div>
+  </div>
+
+  <div class="slide fade">
+    <img src="images/images.jpg" alt="Fieldwork 2">
+    <div class="caption">
+        <h1>ola</h1>
+        <a href="about.html" class="learn-more-btn">Learn More</a>
+    </div>
+  </div>
+
+  <div class="slide fade">
+    <img src="images/download (1).jpg" alt="Fieldwork 3">
+    <div class="caption">
+        <h1>mujib</h1>
+        <a href="about.html" class="learn-more-btn">Learn More</a>
+    </div>
+  </div>
+
+<!-- Arrows -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Dots -->
+<div style="text-align:center; margin-top: 10px;">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</main>
+</div>
+
+
+    <script src="script.js"></script>
+  <script>
+let slideIndex = 1;
+showManualSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showManualSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showManualSlides(slideIndex = n);
+}
+
+function showManualSlides(n) {
+  const slides = document.getElementsByClassName("slide");
+  const dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].classList.add("active");
+}
+</script>
+<script>
+let autoIndex = 0;
+autoShowSlides();
+
+function autoShowSlides() {
+  const slides = document.getElementsByClassName("slide");
+  const dots = document.getElementsByClassName("dot");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  autoIndex++;
+  if (autoIndex > slides.length) { autoIndex = 1 }
+
+  slides[autoIndex - 1].style.display = "block";
+  dots[autoIndex - 1].classList.add("active");
+
+  setTimeout(autoShowSlides, 4000); // Change image every 4 seconds
+}
+</script>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+  }
+</script>
+<script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+  }
+
+  // Close menu automatically when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Scroll effect for navbar
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
+
+</body>
+</html>
